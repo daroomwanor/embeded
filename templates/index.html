@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="static/style.css">
+		<script src="static/index.js"></script>
+		<title>Pi Dashboard</title>
+	</head>
+	<body>
+		<div id="root">
+			<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+			<div id="sideBar" display=10>
+				<iframe id="youtube" width="" height="" src="{{youtube[0]['src']}}" frameborder="0" style="margin-top:-2px;border: solid 2px gray;"></iframe>
+				<div id="qrCode">
+				</div>
+			</div>
+			{% for img in imgs%}
+				{% if img[3] in ["jpg","jpeg","png"]%}
+					<img  style="display: none" class="slide" id="{{loop.index}}" src="http://18.236.135.168:5555/img/{{img[2]}}">
+				{%endif%}
+			{%endfor%}
+
+		</div>
+		<script type="text/javascript">
+			showTime();
+			setTimeout(mobileDisplay, 30000);
+			let screen_width = screen.width/3.5;
+			let screen_height = screen.height/3;
+			let tab_height = screen.height-screen_height;
+			document.getElementById('youtube').width = screen_width;
+			document.getElementById('youtube').height = screen_height;
+			document.getElementById('qrCode').width = screen_width;
+			document.getElementById('qrCode').height = tab_height-20;
+		</script>
+	</body>
+</html>

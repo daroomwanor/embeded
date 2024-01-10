@@ -1,0 +1,55 @@
+body {
+	overflow:hidden;
+	background-color: black;
+}
+
+#root{
+	background-color: black;
+}
+
+.clock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #17D4FE;
+    font-size: 60px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+    margin-left:50px;
+
+}
+
+#sideBar{
+	position:absolute;
+	margin-top:-2px;
+	display:Block;float:left
+}
+
+#wifiBody{
+    background-image: linear-gradient(to right, #9e00ff , #ff00b2);
+}
+
+.connect{
+    position: absolute;
+    top: 40%;
+    left: 45%;
+}
+
+.inputStyle{
+    border-radius: 20px;
+    text-align: center;
+    height: 36px;
+    border: 2px solid gray;
+    font-size: large;
+    width: 300px;
+}
+.btn {
+    background-color: skyblue;
+    border-radius: 20px;
+    text-align: center;
+    height: 42px;
+    border: 2px solid gray;
+    font-size: large;
+    width: 309px;
+}
