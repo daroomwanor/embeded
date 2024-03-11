@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+	</head>
+	<body style="color:white;background-color:transparent">
+		<div style="background-color:transparent">
+			<div class="w3-animate-zoom" id="msg" style="padding:0px 0px 0px 8px;height:60%;width:75%;font-weight:bold;background-color:#282626e3;position:relative;"><h4>{{data}}</h4></div>
+			<div id="hand" style="bottom:0; position:absolute; left:0;">
+				<i class="fa-regular fa-hand-point-right fa-2xl" style="color:#cccccc;font-size:50px; padding-left:8px;"></i>
+				<h2 style="color:#cccccc;">Scan Me</h2>
+			</div>
+		</div>
+		<script type="text/javascript">
+			setInterval(function(){
+				window.location.href="/banner/{{index}}";
+			}, 30000)
+		</script>
+		<style>
+			.w3-animate-zoom {
+				animation:animatezoom 10s infinite;
+			}
+			@keyframes animatezoom {
+				from{transform:scale(0.5)}
+				to{transform:scale(1)}
+			}
+		</style>
+	</body>
+</html>
