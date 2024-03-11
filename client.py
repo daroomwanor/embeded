@@ -6,33 +6,34 @@ import subprocess
 import _thread
 import os
 import requests
-data = json.dumps({'name':'pi1', 'time':time.time()})
-_Socket_ = None
 tunnels = []
 # Define WebSocket callback functions
 
+
+def getConfigs():
+	with open("/configs/configs.json", "r") as filename:
+		return json.loads(filename.read())
+
 def ws_message(ws, message):
 	try:
+		config = getConfigs()
 		data = json.loads(message)
 		if data["action"] == "Bash":
 			print(data["CMD"])
 			stdout = os.popen(data['CMD']).read()
-			data = {"device":"/pi1", "action":"Response", "logs":stdout}
-			print(data)
-			resp = requests.post(url="http://arielapps.com:5555/updateLogs",data=json.dumps(data))
-			print(resp.text)
-			
 	except e:
 		print(e)
-		print("Faild")
+		print("Failed")
 						
 def ws_open(ws):
+	config = getConfigs()
 	data = {
-	"device":"/pi1", "cmd": "ls -l","action":"open"}
+	"device":config['Device'], "cmd": "","action":"open"}
 	ws.send(data)
 
 def ws_thread(*args):
-	ws = websocket.WebSocketApp("ws://0.0.0.0:8777/pi1", on_open = ws_open, on_message = ws_message, on_close=ws_close)
+	config = getConfigs()
+	ws = websocket.WebSocketApp("wss://arielapps.com:8777/"+config['Device'], on_open = ws_open, on_message = ws_message, on_close=ws_close)
 	print("New Tunnel")
 	print(ws)
 	tunnels.append(ws)
@@ -43,11 +44,12 @@ def ws_close(ws):
 	ws.close()
 
 _thread.start_new_thread(ws_thread, ())
+subprocess.run("sudo python3 /embeded/routes.py&", shell=True)
 count=0
 # Continue other (non WebSocket) tasks in the main thread
 while True:
 	try:
-		if count == 20 or count == 0:
+		if count == 60 or count == 0:
 			for x in tunnels:
 				print(x)
 				x.close()

@@ -2,36 +2,64 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="static/style.css">
 		<script src="static/index.js"></script>
 		<title>Pi Dashboard</title>
 	</head>
-	<body>
+	<body style="margin:auto;">
+		<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
 		<div id="root">
-			<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
-			<div id="sideBar" display=10>
-				<iframe id="youtube" width="" height="" src="{{youtube[0]['src']}}" frameborder="0" style="margin-top:-2px;border: solid 2px gray;"></iframe>
-				<div id="qrCode">
+			
+			<div id="sideBar" style="border:solid 1px gray !important;">
+				<div>
+					<iframe id="youtube" width="" height="" src="{{youtube[0]['src']}}" frameborder="0" style="margin-top:0px;border: solid 1px gray;"></iframe>
+				</div>
+				<div>
+					<iframe id="channel" src="" frameborder="0" style="margin-top:0px;border: none">
+					</iframe>
+				</div>
+				
+				<div style="border:solid 1px gray !important;">
+					<img id="backgroundImg" width="" height=""  src="https://arielapps.com/img/{{banner[1]}}" 
+					style="opacity:0.2;"/>
+				</div>
+				<div>
+					<iframe id="banner" src="http://localhost:5000/banner/0" frameborder="0" style="border:none;">
+					</iframe>
+					
+				</div>
+				
+				<div>
+					<img class="w3-animate-zoom" id="qrCode" src="https://arielapps.com/img/{{banner[0]}} "/>
 				</div>
 			</div>
-			{% for img in imgs%}
-				{% if img[3] in ["jpg","jpeg","png"]%}
-					<img  style="display: none" class="slide" id="{{loop.index}}" src="http://18.236.135.168:5555/img/{{img[2]}}">
-				{%endif%}
-			{%endfor%}
+			<div>
+				{% for frame in iframes:%}
+					<iframe  style="display: none; position:relative;" class="slide" id="{{loop.index}}" 
+					src="https://arielapps.com/signage/{{frame[0]}}/{{frame[1]}}/{{frame[2]}}"></iframe>
+				{%endfor%}
+			</div>
 
 		</div>
 		<script type="text/javascript">
-			showTime();
-			setTimeout(mobileDisplay, 30000);
-			let screen_width = screen.width/3.5;
+			//showTime();
+			//setTimeout(mobileDisplay, 30000);
+			let screen_width = (screen.width/3.5);
 			let screen_height = screen.height/3;
-			let tab_height = screen.height-screen_height;
+			let tab_height = screen_height-20;
 			document.getElementById('youtube').width = screen_width;
 			document.getElementById('youtube').height = screen_height;
-			document.getElementById('qrCode').width = screen_width;
-			document.getElementById('qrCode').height = tab_height-20;
+			document.getElementById('channel').width = screen_width;
+			document.getElementById('channel').height= screen_height;
+			document.getElementById('banner').width = screen_width;
+			document.getElementById('banner').height= tab_height;
+			document.getElementById('backgroundImg').width = screen_width;
+			document.getElementById('backgroundImg').height= tab_height;
+			check();
+			setTimeout(() => {
+				var src = "{{playlistSrc}}";
+				playlist(src);
+			}, 25000);
 		</script>
 	</body>
 </html>

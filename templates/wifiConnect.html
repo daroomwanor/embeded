@@ -5,17 +5,20 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="static/style.css">
-    <script src="static/index.js"></script>
     <title>Pi Dashboard</title>
   </head>
   <body id="wifiBody">
     <img src="/static/penguinLogo.png">
-    <div class="connect">
-        <table>
+    <div  class="connect">
+		<h1 style="display:none" id="connecting">Connecting, Please Restart Device After Successful Connection</h1>
+        <table id="connect">
           <tr>
             <td> 
-              <select required class="inputStyle">
-                <option value="">Choose Wifi To Connect</option>
+              <select id="wifi" required class="inputStyle" onChange="updateWifi()">
+                <option style="text-align: center" value="">Choose Wifi To Connect</option>
+                {% for x in data%}
+					<option value="{{x}}">{{x}}</option>
+                {%endfor%}
               </select>
             </td>
           </tr>
@@ -23,15 +26,39 @@
             <td style="text-align: center; color:white">OR</td>
           </tr>
           <tr>
-            <td><input class="inputStyle" type="text" placeholder="Enter Wifi Name" /></td>
+            <td><input id="inputName" value="" class="inputStyle" type="text" placeholder="Enter Wifi Name" /></td>
           </tr>
           <tr>
-            <td><input class="inputStyle" type="password" placeholder="Password" /></td>
+            <td><input id="password" class="inputStyle" type="password" placeholder="Password" /></td>
           </tr>
           <tr>
-            <td><input class="btn" type="submit" value="Connect" /></td>
+            <td><input id="connectWifi" onclick="connectWifi()" class="btn" type="submit" value="Connect" /></td>
           </tr>
         </table>
+        <h3 Id="failedTxt" style="display:None">Connection Failed, Check Wifi Name/Password.</h3>
     </div>
+    <script>
+		function updateWifi(){
+			var name = document.getElementById("wifi").value;
+			document.getElementById("inputName").value=name;	
+		}
+		
+		function connectWifi(){
+			var name = document.getElementById("inputName").value;
+			var password = document.getElementById("password").value;
+			if(name!=null && password!=null){
+				document.getElementById("connect").style.display ="None";
+				document.getElementById("connecting").style.display ="Block";
+				const xhttp = new XMLHttpRequest();
+				xhttp.onload = function() {
+					 if (this.readyState == 4 && this.status == 200) {
+						 
+					}
+				}
+				xhttp.open("GET", "/connectToWIFI?ssid="+name+"&password="+password);
+				xhttp.send();
+			}
+		}
+    </script>
   </body>
 </html>
