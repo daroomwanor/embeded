@@ -2,9 +2,9 @@
 	<head>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 	</head>
-	<body style="color:white;background-color:transparent">
+	<body style="color:white;background-color:transparent;overflow: visible;overflow-y: hidden;overflow-x: hidden;width:100%">
 		<div style="background-color:transparent">
-			<div class="" id="msg" style="padding:0px 0px 0px 8px;height:60%;width:100%;font-weight:bold;background-color:#282626e3;position:relative; font-size: xx-large;"><p>
+			<div class="" id="msg" style="padding:0px 0px 0px 8px;height:60%;min-width:2000px;font-weight:bold;background-color:#282626e3;position:relative; font-size: xx-large;"><p>
 				{% for x in data:%}
 					{{x}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
 				{%endfor%}
@@ -20,6 +20,8 @@
 			    background-color: black;
 			    white-space: nowrap;
 			    overflow: visible;
+			    overflow-y: hidden;
+  				overflow-x: hidden;
 			   }
 			p{
 			    display: inline-block;
