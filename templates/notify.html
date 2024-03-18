@@ -4,7 +4,7 @@
 	</head>
 	<body style="color:white;background-color:transparent">
 		<div style="background-color:transparent">
-			<div class="" id="msg" style="padding:0px 0px 0px 8px;height:60%;min-width:10000px;font-weight:bold;background-color:#282626e3;position:relative; font-size: xx-large;"><p>
+			<div class="" id="msg" style="padding:0px 0px 0px 8px;height:60%;min-width:100%;font-weight:bold;background-color:#282626e3;position:relative; font-size: xx-large;"><p>
 				{% for x in data:%}
 					{{x}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
 				{%endfor%}
@@ -21,6 +21,9 @@
 			    white-space: nowrap;
 			    overflow: visible;
 			   }
+			#msg::-webkit-scrollbar {
+			    display: none;
+			}
 			p{
 			    display: inline-block;
 			    color: #FFF;
