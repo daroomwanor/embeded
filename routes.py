@@ -89,11 +89,7 @@ def check():
 	
 @app.route("/banner/<key>", methods=['GET', 'POST'])
 def banner(key):  
-	index = int(key)
-	if index >= len(app.notifications) or index == 0:
-		index=0
-	index+=1
-	return render_template("notify.html", data=app.notifications[index-1], index=index)
+	return render_template("notify.html", data=app.notifications, index=index)
 
 def getWifiList():
 	wifiList = list(Cell.all('wlan0'))

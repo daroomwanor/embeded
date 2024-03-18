@@ -63,21 +63,7 @@ body {
 	right:0;
 	
 }
-#banner{
-	font-weight:bold;
-	background-color:transparent;
-	position:relative;
-	animation-name:bannerAnimation;
-	animation-duration:10s;
-	animation-iteration-count:infinite;
-	animation-timing-function: ease-in-out;
-}
 
-@keyframes bannerAnimation {
-	0% 	{left:0px; top:0px}
-	25% {left:25%; top:0px}
-	75% {left:0px; top:0px}
-}
 .w3-animate-zoom {
 	animation:animatezoom 10s infinite;
 }

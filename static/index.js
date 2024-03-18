@@ -92,3 +92,7 @@ function setSlides() {
 function playlist(src){
 document.getElementById("channel").setAttribute('src', src);
 }
+
+function youtubePlaylist(src){
+document.getElementById("youtube").setAttribute('src', src);
+}

@@ -57,9 +57,14 @@
 			document.getElementById('backgroundImg').height= tab_height;
 			check();
 			setTimeout(() => {
+				var src = "{{youtube[0]['src']}}";
+				youtubePlaylist(src);
+			}, 10000);
+
+			setTimeout(() => {
 				var src = "{{playlistSrc}}";
 				playlist(src);
-			}, 25000);
+			}, 60000);
 		</script>
 	</body>
 </html>

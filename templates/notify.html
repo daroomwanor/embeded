@@ -4,24 +4,32 @@
 	</head>
 	<body style="color:white;background-color:transparent">
 		<div style="background-color:transparent">
-			<div class="w3-animate-zoom" id="msg" style="padding:0px 0px 0px 8px;height:60%;width:75%;font-weight:bold;background-color:#282626e3;position:relative;"><h4>{{data}}</h4></div>
+			<div class="" id="msg" style="padding:0px 0px 0px 8px;height:60%;width:100%;font-weight:bold;background-color:#282626e3;position:relative; font-size: xx-large;"><p>
+				{% for x in data:%}
+					{{x}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+				{%endfor%}
+			</p></div>
 			<div id="hand" style="bottom:0; position:absolute; left:0;">
 				<i class="fa-regular fa-hand-point-right fa-2xl" style="color:#cccccc;font-size:50px; padding-left:8px;"></i>
 				<h2 style="color:#cccccc;">Scan Me</h2>
 			</div>
 		</div>
-		<script type="text/javascript">
-			setInterval(function(){
-				window.location.href="/banner/{{index}}";
-			}, 30000)
-		</script>
-		<style>
-			.w3-animate-zoom {
-				animation:animatezoom 10s infinite;
+		<style type="text/css">
+			#msg{
+			    width: 100%;
+			    background-color: black;
+			    white-space: nowrap;
+			    overflow: hidden;
+			   }
+			p{
+			    display: inline-block;
+			    color: #FFF;
+			    padding-left: 100%;
+			    animation: move 100s linear infinite;
 			}
-			@keyframes animatezoom {
-				from{transform:scale(0.5)}
-				to{transform:scale(1)}
+			@keyframes move {
+			    0%   { transform: translate(0, 0); }
+			    100% { transform: translate(-100%, 0); }
 			}
 		</style>
 	</body>
