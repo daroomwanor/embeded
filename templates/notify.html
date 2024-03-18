@@ -2,13 +2,17 @@
 	<head>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 		<style type="text/css">
+			body {
+			  width: 5000px; /* Make this site really wide */
+			  overflow-x: hidden;
+			}
 			#msg{
 			    width: 100%;
 			    background-color: black;
 			    white-space: nowrap;
 			    overflow: visible;
 			   }
-			#msg:: -webkit-scrollbar {
+			::-webkit-scrollbar {
 			    display: none;
 			}
 			p{
@@ -25,7 +29,7 @@
 	</head>
 	<body style="color:white;background-color:transparent">
 		<div style="background-color:transparent">
-			<div class="msg" id="msg" style="padding:0px 0px 0px 8px;height:60%;min-width:100%;font-weight:bold;background-color:#282626e3;position:relative; font-size: xx-large;"><p>
+			<div class="msg" id="msg" style="padding:0px 0px 0px 8px;height:60%;width:100%;font-weight:bold;background-color:#282626e3;position:relative; font-size: xx-large;"><p>
 				{% for x in data:%}
 					{{x}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
 				{%endfor%}
