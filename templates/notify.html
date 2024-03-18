@@ -22,11 +22,11 @@
 			}
 		</style>
 	</head>
-	<body style="color:white;background-color:transparent; overflow:visible;">
+	<body style="color:white;background-color:transparent; overflow:visible;width: 100%;">
 		<div style="background-color:transparent">
-			<div class="msg" id="msg" style="padding:0px 0px 0px 8px;height:60%;width:100%;font-weight:bold;background-color:#282626e3;position:relative; font-size: xx-large;"><p>
+			<div class="msg" id="msg" style="padding:0px 0px 0px 8px;height:60%;min-width:100%;font-weight:bold;background-color:#282626e3;position:relative; font-size: xx-large;"><p>
 				{% for x in data:%}
-					&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {{x}} 
+					&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {{x}} 
 				{%endfor%}
 			</p></div>
 			<div id="hand" style="bottom:0; position:absolute; left:0;">
