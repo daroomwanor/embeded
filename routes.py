@@ -25,6 +25,7 @@ app.secret_key = "abc"
 __Configs__ = None
 app.notifications = []
 app.refresh = "false"
+app.rebootRefresh = "true"
 app.myPlaylist = None
 def getConfigs():
 	with open("/configs/configs.json", "r") as filename:
@@ -86,6 +87,16 @@ def index():
 @app.route("/check", methods=['GET', 'POST'])
 def check():
 	return app.refresh
+
+@app.route("/checkReboot", methods=['GET', 'POST'])
+def checkReboot():
+	status = app.rebootRefresh
+	if status == "true":
+		status = "true"
+		app.rebootRefresh = "false"
+	else:
+		status = "false"
+	return status
 	
 @app.route("/banner/<key>", methods=['GET', 'POST'])
 def banner(key):  

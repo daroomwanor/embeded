@@ -17,6 +17,19 @@ function check(){
 	xhttp.send();
 }
 
+function checkReboot(){
+	const xhttp = new XMLHttpRequest();
+	xhttp.onload = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			if(xhttp.responseText == "true"){
+				window.location.reload();
+			}
+		}
+	}
+	xhttp.open("GET", "/checkReboot");
+	xhttp.send();
+}
+
 function showTime(){
 	var date = new Date();
 	var h = date.getHours(); // 0 - 23
