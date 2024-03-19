@@ -4,6 +4,12 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="static/style.css">
 		<script src="static/index.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+		<style type="text/css">
+			::-webkit-scrollbar {
+			    display: none;
+			}
+		</style>
 		<title>Pi Dashboard</title>
 	</head>
 	<body style="margin:auto;">
@@ -23,10 +29,20 @@
 					<img id="backgroundImg" width="" height=""  src="https://arielapps.com/img/{{banner[1]}}" 
 					style="opacity:0.2;"/>
 				</div>
-				<div>
-					<iframe id="banner" src="http://localhost:5000/banner/0" frameborder="0" style="border:none;">
-					</iframe>
-					
+				<div id="banner">
+					<div style="background-color:transparent">
+						<div id="msg" style="padding:0px 0px 0px 0px;height:60%;width:100%;font-weight:bold;background-color:#282626e3;position:relative; font-size: xx-large;">
+							<p>
+								{% for x in banner[2]:%}
+									&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {{x}} 
+								{%endfor%}
+							</p>
+						</div>
+						<div id="hand" style="bottom:0; position:absolute; left:0;">
+							<i class="fa-regular fa-hand-point-right fa-2xl" style="color:#cccccc;font-size:50px; padding-left:8px;"></i>
+							<h2 style="color:#cccccc;">Scan Me</h2>
+						</div>
+					</div>					
 				</div>
 				
 				<div>
@@ -51,8 +67,8 @@
 			document.getElementById('youtube').height = screen_height;
 			document.getElementById('channel').width = screen_width;
 			document.getElementById('channel').height= screen_height;
-			document.getElementById('banner').width = screen_width;
-			document.getElementById('banner').height= tab_height;
+			document.getElementById('banner').style.width = screen_width+"px";
+			document.getElementById('banner').style.height= tab_height+"px";
 			document.getElementById('backgroundImg').width = screen_width;
 			document.getElementById('backgroundImg').height= tab_height;
 			check();

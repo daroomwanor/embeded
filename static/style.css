@@ -64,6 +64,23 @@ body {
 	
 }
 
+#msg{
+    width: 100%;
+    background-color: black;
+    white-space: nowrap;
+    overflow: scroll;
+}
+
+p{
+    display: inline-block;
+    color: #FFF;
+    animation: move 100s linear infinite;
+    overflow: scroll;
+}
+@keyframes move {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
 .w3-animate-zoom {
 	animation:animatezoom 10s infinite;
 }
