@@ -101,11 +101,20 @@ function setSlides() {
 }
 
 
-
+var b2bIndex = 0;
 function playlist(src){
-document.getElementById("channel").setAttribute('src', src);
+	document.getElementById("channel").setAttribute('src', src);
 }
 
 function youtubePlaylist(src){
 document.getElementById("youtube").setAttribute('src', src);
+}
+
+function b2b(src) {
+	if(b2bIndex >=4){
+		b2bIndex = 0;
+	}
+	var url = src+"/"+b2bIndex
+	document.getElementById("youtube").setAttribute('src', url);
+	b2bIndex = b2bIndex+1;
 }

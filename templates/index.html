@@ -85,6 +85,15 @@
 			setTimeout(() => {
 				checkReboot();
 			}, 30000);
+
+			setInterval(() =>{
+				var src = "http://arielapps.com:5555/getB2BSignage/{{banner[0]}}"
+				b2b(src);
+				setTimeout(() => {
+					var youtubeURL = "{{youtube[0]['src']}}";
+					document.getElementById("youtube").setAttribute('src', youtubeURL);
+				}, 30000)	
+			}, 65000);
 		</script>
 	</body>
 </html>
