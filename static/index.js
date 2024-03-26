@@ -115,6 +115,8 @@ function b2b(src) {
 		b2bIndex = 0;
 	}
 	var url = src+"/"+b2bIndex
-	document.getElementById("youtube").setAttribute('src', url);
+	document.getElementById("b2b").setAttribute('src', url);
 	b2bIndex = b2bIndex+1;
+	document.getElementById("b2b").style.display="Block";
+	document.getElementById("youtube").style.display="None";
 }
