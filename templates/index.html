@@ -17,19 +17,19 @@
 		<div id="root">
 			
 			<div id="sideBar" style="border:solid 1px gray !important;">
-				<div>
-					<iframe id="b2b" width="" height="" src="https://arielapps.com/getB2BSignage/{{banner[0]}}/0" frameborder="0" style="margin-top:0px;border: solid 1px gray;"></iframe>
-					<iframe id="youtube" width="" height="" src="{{youtube[0]['src']}}" frameborder="0" style="margin-top:0px;border: solid 1px gray; display: none;"></iframe>
-				</div>
+				
 				<div>
 					<iframe id="channel" src="" frameborder="0" style="margin-top:0px;border: none">
 					</iframe>
 				</div>
-				
+
+				<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+				<div id="date" class="date"></div>	
 				<div style="border:solid 1px gray !important;">
 					<img id="backgroundImg" width="" height=""  src="https://arielapps.com/img/{{banner[1]}}" 
 					style="opacity:0.2;"/>
 				</div>
+
 				<div id="banner">
 					<div style="background-color:transparent">
 						<div id="msg" style="padding:0px 0px 0px 0px;height:60%;width:100%;font-weight:bold;background-color:#282626e3;position:relative; font-size: xx-large;">
@@ -39,17 +39,16 @@
 								{%endfor%}
 							</p>
 						</div>
-						<div id="hand" style="bottom:0; position:absolute; left:0;">
-							<i class="fa-regular fa-hand-point-right fa-2xl" style="color:#cccccc;font-size:50px; padding-left:8px;"></i>
-							<h2 style="color:#cccccc;">Scan Me</h2>
-						</div>
 					</div>					
 				</div>
-				
+
 				<div>
-					<img class="w3-animate-zoom" id="qrCode" src="https://arielapps.com/img/{{banner[0]}} "/>
+					<iframe id="b2b" width="" height="" src="https://arielapps.com/getB2BSignage/{{banner[0]}}/0" frameborder="0" style="margin-top:0px;border: solid 1px gray;"></iframe>
+					<iframe id="youtube" width="" height="" src="{{youtube[0]['src']}}" frameborder="0" style="margin-top:0px;border: solid 1px gray; display: none;"></iframe>
 				</div>
+				
 			</div>
+
 			<div>
 				{% for frame in iframes:%}
 					<iframe  style="display: none; position:relative;" class="slide" id="{{loop.index}}" 
@@ -58,7 +57,12 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-			//showTime();
+			const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+			const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+			const d = new Date();
+			var date = days[d.getDay()]+'  '+months[d.getMonth()]+'  '+d.getDate();
+			document.getElementById("date").innerHTML = date;
+			showTime();
 			//setTimeout(mobileDisplay, 30000);
 			let screen_width = (screen.width/3.5);
 			let screen_height = screen.height/3;
