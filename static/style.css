@@ -10,12 +10,13 @@ body {
 .clock {
     position: absolute;
     top: 55%;
-    left: 50%;
+    left: 0;
     transform: translateX(-50%) translateY(-50%);
     color: #17D4FE;
     font-size: 30px;
     font-family: Orbitron;
     letter-spacing: 7px;
+    margin-left: 50%;
 
 }
 
