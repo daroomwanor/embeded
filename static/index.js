@@ -112,11 +112,11 @@ document.getElementById("youtube").setAttribute('src', src);
 
 function b2b(src, row) {
 	var x = Number(row);
-	alert(x);
 	if(b2bIndex >= x){
 		b2bIndex = 0;
 	}
 	var url = src+"/"+b2bIndex
+	console.log(url);
 	document.getElementById("b2b").setAttribute('src', url);
 	b2bIndex = b2bIndex+1;
 	document.getElementById("b2b").style.display="Block";

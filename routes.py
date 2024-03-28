@@ -60,7 +60,7 @@ def index():
 			src = ",".join(playlist)
 			playlistSrc = "https://youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist="+src
 			resp2 = requests.get('https://arielapps.com/getB2BSignageList/'+config["Device"])
-			b2b = resp.text		
+			b2b = resp2.text		
 	except Exception as e:
 		print(e)
 		resp = "Error"

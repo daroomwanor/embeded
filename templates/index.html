@@ -56,7 +56,6 @@
 					src="https://arielapps.com/signage/{{frame[0]}}/{{frame[1]}}/{{frame[2]}}"></iframe>
 				{%endfor%}
 			</div>
-
 		</div>
 		<script type="text/javascript">
 			//showTime();
@@ -94,7 +93,7 @@
 
 			setInterval(() =>{
 				var src = "https://arielapps.com/getB2BSignage/{{banner[0]}}";
-				var idx = {{b2b}};
+				var idx = "{{b2b}}";
 				console.log(idx);
 				b2b(src, idx);
 				setTimeout(() =>{
