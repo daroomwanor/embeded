@@ -10,24 +10,22 @@ body {
 .clock {
     position: absolute;
     top: 55%;
-    left: 45%;
+    left: 50%;
     transform: translateX(-50%) translateY(-50%);
     color: #17D4FE;
     font-size: 30px;
     font-family: Orbitron;
-    letter-spacing: 7px;
 
 }
 
 .date {
     position: absolute;
     top: 60%;
-    left: 54%;
+    left: 50%;
     transform: translateX(-50%) translateY(-50%);
     color: #17D4FE;
     font-size: 25px;
     font-family: Orbitron;
-    letter-spacing: 7px;
 }
 
 #sideBar{
