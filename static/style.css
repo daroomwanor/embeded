@@ -13,8 +13,10 @@ body {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     color: #17D4FE;
-    font-size: 30px;
+    font-size: x-large;
     font-family: Orbitron;
+    color: #13ff00;
+    text-align: center;
 
 }
 
@@ -24,8 +26,10 @@ body {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     color: #17D4FE;
-    font-size: 25px;
+    font-size: large;
     font-family: Orbitron;
+    color: #13ff00;
+    text-align: center;
 }
 
 #sideBar{
