@@ -10,7 +10,7 @@ body {
 .clock {
     position: absolute;
     top: 55%;
-    left: 50%;
+    left: 45%;
     transform: translateX(-50%) translateY(-50%);
     color: #17D4FE;
     font-size: 30px;
