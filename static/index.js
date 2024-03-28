@@ -112,6 +112,7 @@ document.getElementById("youtube").setAttribute('src', src);
 
 function b2b(src, row) {
 	var x = Number(row);
+	alert(x);
 	if(b2bIndex >= x){
 		b2bIndex = 0;
 	}
