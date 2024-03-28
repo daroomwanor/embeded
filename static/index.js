@@ -110,8 +110,9 @@ function youtubePlaylist(src){
 document.getElementById("youtube").setAttribute('src', src);
 }
 
-function b2b(src) {
-	if(b2bIndex >=4){
+function b2b(src, row) {
+	var x = Number(row);
+	if(b2bIndex >= x){
 		b2bIndex = 0;
 	}
 	var url = src+"/"+b2bIndex

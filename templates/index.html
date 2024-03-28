@@ -18,8 +18,8 @@
 			
 			<div id="sideBar" style="border:solid 1px gray !important;">
 				<div>
-					<iframe id="b2b" width="" height="" src="" frameborder="0" style="margin-top:0px;border: solid 1px gray;display: none;"></iframe>
-					<iframe id="youtube" width="" height="" src="{{youtube[0]['src']}}" frameborder="0" style="margin-top:0px;border: solid 1px gray;"></iframe>
+					<iframe id="b2b" width="" height="" src="https://arielapps.com/getB2BSignage/{{banner[0]}}/0" frameborder="0" style="margin-top:0px;border: solid 1px gray;"></iframe>
+					<iframe id="youtube" width="" height="" src="{{youtube[0]['src']}}" frameborder="0" style="margin-top:0px;border: solid 1px gray; display: none;"></iframe>
 				</div>
 				<div>
 					<iframe id="channel" src="" frameborder="0" style="margin-top:0px;border: none">
@@ -83,20 +83,32 @@
 			setTimeout(() => {
 				var src = "{{playlistSrc}}";
 				playlist(src);
-			}, 60000);
+				setTimeout(() =>{
+					playlist(src);
+				}, 10000);
+			}, 50000);
 
 			setTimeout(() => {
 				checkReboot();
 			}, 30000);
 
 			setInterval(() =>{
-				var src = "https://arielapps.com/getB2BSignage/{{banner[0]}}"
-				b2b(src);
+				var src = "https://arielapps.com/getB2BSignage/{{banner[0]}}";
+				var b2bIndex = "{{b2b}}";
+				b2b(src, b2bIndex);
+				setTimeout(() =>{
+					b2b(src, b2bIndex);
+				},30000);
 				setTimeout(() => {
 					document.getElementById("b2b").style.display="None";
 					document.getElementById("youtube").style.display="Block";
-				}, 30000)	
-			}, 65000);
+				}, 60000);	
+			}, 150000);
+
+			setTimeout(() => {
+				document.getElementById("b2b").style.display="None";
+				document.getElementById("youtube").style.display="Block";
+			}, 30000);
 		</script>
 	</body>
 </html>

@@ -58,7 +58,9 @@ def index():
 				else:
 					iframes.append(x)
 			src = ",".join(playlist)
-			playlistSrc = "https://youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist="+src		
+			playlistSrc = "https://youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist="+src
+			resp2 = requests.get('https://arielapps.com/getB2BSignageList/'+config["Device"])
+			b2b = resp.text		
 	except Exception as e:
 		print(e)
 		resp = "Error"
@@ -77,7 +79,7 @@ def index():
 			banner = [qrCode, backgroundImg, notices]
 			app.notifications=notices
 			return render_template('index.html', iframes=iframes, \
-			youtube=youtube, playlistSrc=playlistSrc,banner=banner)
+			youtube=youtube, playlistSrc=playlistSrc,banner=banner,b2b=b2b)
 		else:
 			wifiList = getWifiList()
 			if len(wifiList) == 0:
