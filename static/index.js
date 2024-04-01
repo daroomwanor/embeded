@@ -119,6 +119,4 @@ function b2b(src, row) {
 	console.log(url);
 	document.getElementById("b2b").setAttribute('src', url);
 	b2bIndex = b2bIndex+1;
-	document.getElementById("b2b").style.display="Block";
-	document.getElementById("youtube").style.display="None";
 }

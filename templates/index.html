@@ -15,18 +15,14 @@
 	<body style="margin:auto;">
 		<div id="root">
 			
-			<div id="sideBar" style="border:solid 1px gray !important;">
+			<div id="sideBar" style="border:solid 2px gray !important;">
 				
 				<div>
 					<iframe id="channel" src="" frameborder="0" style="margin-top:0px;border: none">
 					</iframe>
-				</div>
-
-				<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
-				<div id="date" class="date"></div>	
+				</div>	
 				<div style="border:solid 1px gray !important;">
-					<img id="backgroundImg" width="" height=""  src="https://arielapps.com/img/{{banner[1]}}" 
-					style="opacity:0.2;"/>
+					<iframe id="youtube" width="" height=""  src="{{youtube[0]['src']}}" style="position: absolute;"></iframe>
 				</div>
 
 				<div id="banner">
@@ -42,8 +38,7 @@
 				</div>
 
 				<div>
-					<iframe id="b2b" width="" height="" src="https://arielapps.com/getB2BSignage/{{banner[0]}}/0" frameborder="0" style="margin-top:0px;border: solid 1px gray;"></iframe>
-					<iframe id="youtube" width="" height="" src="{{youtube[0]['src']}}" frameborder="0" style="margin-top:0px;border: solid 1px gray; display: none;"></iframe>
+					<iframe id="b2b" width="" height="" src="https://arielapps.com/getB2BSignage/{{banner[0]}}/0" frameborder="0" style="border: solid 2px gray; position:absolute; background-color:black; margin-left: -1.6px;"></iframe>
 				</div>
 				
 			</div>
@@ -62,20 +57,17 @@
 			var date = days[d.getDay()]+'  '+months[d.getMonth()]+'  '+d.getDate();
 			document.getElementById("date").innerHTML = date;
 			showTime();
-			//setTimeout(mobileDisplay, 30000);
 			let screen_width = (screen.width/3.5);
 			let screen_height = screen.height/3;
-			let tab_height = screen_height-11;
+			let tab_height = screen_height+51;
 			document.getElementById('youtube').width = screen_width;
 			document.getElementById('youtube').height = screen_height;
 			document.getElementById('b2b').width = screen_width;
-			document.getElementById('b2b').height = screen_height;
+			document.getElementById('b2b').height = tab_height;
 			document.getElementById('channel').width = screen_width;
 			document.getElementById('channel').height= screen_height;
 			document.getElementById('banner').style.width = screen_width+"px";
-			document.getElementById('banner').style.height= tab_height+"px";
-			document.getElementById('backgroundImg').width = screen_width;
-			document.getElementById('backgroundImg').height= tab_height;
+			document.getElementById('banner').style.height= screen_height+"px";
 			check();
 			setTimeout(() => {
 				var src = "{{youtube[0]['src']}}";
@@ -88,7 +80,7 @@
 				setTimeout(() =>{
 					playlist(src);
 				}, 10000);
-			}, 50000);
+			}, 40000);
 
 			setTimeout(() => {
 				checkReboot();
@@ -97,21 +89,10 @@
 			setInterval(() =>{
 				var src = "https://arielapps.com/getB2BSignage/{{banner[0]}}";
 				var idx = "{{b2b}}";
-				console.log(idx);
-				b2b(src, idx);
-				setTimeout(() =>{
-					b2b(src, idx);
-				},30000);
-				setTimeout(() => {
-					document.getElementById("b2b").style.display="None";
-					document.getElementById("youtube").style.display="Block";
-				}, 60000);	
-			}, 150000);
-
-			setTimeout(() => {
-				document.getElementById("b2b").style.display="None";
-				document.getElementById("youtube").style.display="Block";
+				b2b(src, idx);	
 			}, 30000);
+
+			
 		</script>
 	</body>
 </html>

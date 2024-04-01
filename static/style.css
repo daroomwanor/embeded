@@ -81,6 +81,8 @@ body {
     background-color: black;
     white-space: nowrap;
     overflow: scroll;
+    margin-top: -60px;
+	height: 100%;
 }
 
 p{
