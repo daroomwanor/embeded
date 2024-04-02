@@ -56,7 +56,8 @@ def index():
 				elif x[2] == "notifications":
 					banners = x 
 				else:
-					iframes.append(x)
+					if x[4] == "true":
+						iframes.append(x)
 			src = ",".join(playlist)
 			playlistSrc = "https://youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist="+src
 			resp2 = requests.get('https://arielapps.com/getB2BSignageList/'+config["Device"])
@@ -74,9 +75,8 @@ def index():
 			else:
 				youtube.append({'src':"https://youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist="+config[config['channel']], "type":"iframe"})
 			qrCode = config["Device"]
-			backgroundImg = (banners[0]).replace("default_", "")
 			notices = json.loads(banners[3])
-			banner = [qrCode, backgroundImg, notices]
+			banner = [qrCode, notices]
 			app.notifications=notices
 			return render_template('index.html', iframes=iframes, \
 			youtube=youtube, playlistSrc=playlistSrc,banner=banner,b2b=b2b)
